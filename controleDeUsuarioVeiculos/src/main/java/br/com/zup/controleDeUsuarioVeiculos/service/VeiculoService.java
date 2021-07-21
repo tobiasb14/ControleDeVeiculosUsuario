@@ -2,8 +2,6 @@ package br.com.zup.controleDeUsuarioVeiculos.service;
 
 import java.net.URI;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,7 +23,7 @@ public class VeiculoService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	public ResponseEntity<VeiculoDto> cadastrarVeiculo(@Valid VeiculoForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<VeiculoDto> cadastrarVeiculo(VeiculoForm form, UriComponentsBuilder uriBuilder) {
 		Veiculo veiculo = form.converter(usuarioRepository);
 		veiculoRepository.save(veiculo);
 		URI uri = uriBuilder.path("/veiculo/{id}").buildAndExpand(veiculo.getId()).toUri();

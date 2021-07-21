@@ -22,7 +22,7 @@ public class UsuarioForm {
 	@Length(min=11, max=11)
 	private String cpf;
 	@NotEmpty
-	@Length(min=10, max=10)
+	@Length(min=8, max=8)
 	private String dataNascimento;
 
 	public String getNome() {
